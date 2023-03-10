@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<launch>
+    <rosparam file = "$(find motor_control)/config/params.yaml" command = "load"  />
+    <node name="Input" pkg="rosserial_python" type="serial_node.py">
+    <param name="port"	type="string"	value="/dev/ttyUSB0"/>   
+    
+    </node>
+    
+</launch>
