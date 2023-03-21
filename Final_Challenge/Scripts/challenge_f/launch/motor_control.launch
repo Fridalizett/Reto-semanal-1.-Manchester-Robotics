@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<launch>
+    <rosparam file = "$(find challenge_f)/config/params.yaml" command = "load"  />
+    <rosparam file = "$(find challenge_f)/config/control_params.yaml" command = "load"  />
+    <node name="Input" pkg="challenge_f" type="Input.py" output="screen" launch-prefix="gnome-terminal --command"/>
+    <node name="Controller" pkg="challenge_f" type="Controller.py" output="screen" launch-prefix="gnome-terminal --command"/>
+    <node name="rqt_graph" pkg="rqt_graph" type="rqt_graph" output="screen"/>
+    <node name="rqt_plot" pkg="rqt_plot" type="rqt_plot" output="screen" 
+            args="/motor_output/output /motor_input/input"/>  <!-- /set_point/setPoint -->
+</launch>
